@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProductsInfo.Models.Product>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Get All</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <tr class="table-success">
+        <th scope="row">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th scope="row">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th scope="row">
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th scope="row">Update</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr scope="row">
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+        </td>
+    </tr>
+}
+
+</table>
